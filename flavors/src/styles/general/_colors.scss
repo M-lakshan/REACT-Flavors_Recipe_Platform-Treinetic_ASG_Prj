@@ -1,0 +1,11 @@
+/* Light theme */
+:root {
+  --primary-background: white;
+  --primary-color: black;
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  --primary-background: #2c2c2c;
+  --primary-color: white;
+}
