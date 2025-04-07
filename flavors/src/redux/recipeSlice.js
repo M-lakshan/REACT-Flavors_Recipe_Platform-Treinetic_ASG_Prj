@@ -5,7 +5,7 @@ const initialState = {
   recipes: [],
   favorites: [],
   loading: false,
-  error: null,
+  error: null
 };
 
 // POST API call

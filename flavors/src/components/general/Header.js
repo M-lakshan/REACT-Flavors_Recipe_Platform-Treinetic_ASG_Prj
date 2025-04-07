@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toggleTheme } from '../../redux/themeSlice'; 
 
-const Header = ({ header_logo }) => {
+const Header = ({ header_logo, cur_theme, cur_user }) => {
   const [nav_collapsed, setNavCollapsed] = useState(true);
-  const cur_theme = useSelector((state) => state.theme.currentTheme);
-  const cur_user = useSelector((state) => state.user.user);
   const dispatch = useDispatch(); 
   const navigate = useNavigate();  
 

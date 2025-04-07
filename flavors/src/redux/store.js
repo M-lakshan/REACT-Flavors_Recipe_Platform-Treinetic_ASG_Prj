@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './themeSlice';
 import userReducer from './userSlice';
 import recipeReducer from './recipeSlice';
+import cookingReducer from './cookingSlice';
 
 const store = configureStore({
   reducer: {
-    theme: themeReducer,
-    user: userReducer,
-    recipes: recipeReducer,
+    cur_theme: themeReducer,
+    cur_user: userReducer,
+    cur_recipes: recipeReducer,
+    cur_cooking: cookingReducer
   },
 });
 
