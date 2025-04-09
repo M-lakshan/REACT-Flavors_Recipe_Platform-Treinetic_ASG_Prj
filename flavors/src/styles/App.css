@@ -1129,6 +1129,9 @@ main #recipe_page_content .recipe_list {
   width: 100%;
   max-width: 1080px;
 }
+main #recipe_page_content .recipe_list.grid {
+  display: grid;
+}
 main #popup_component {
   position: absolute;
   z-index: 5;

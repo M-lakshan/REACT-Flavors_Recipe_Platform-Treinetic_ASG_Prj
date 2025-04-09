@@ -81,4 +81,9 @@ $recipe_page_content_max_width: 1080px;
       @extend %recipe_lite;
     }
   }
+
+  .recipe_list.grid {
+    display: grid;
+
+  }
 }
