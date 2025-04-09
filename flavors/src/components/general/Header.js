@@ -22,7 +22,7 @@ const Header = ({ header_logo, cur_theme, cur_user }) => {
       </button>
       <nav className={`navigator ${(nav_collapsed) ? '' : "toggled"}`}>
         <div className="nav_links">
-          <p className="nav_link nav_link_i"><Link to="/recipes">Recipes</Link></p>
+          <p className="nav_link nav_link_i"><Link to="/recipies">Recipies</Link></p>
           <p className="nav_link nav_link_ii"><Link to="/cooking">Cooking</Link></p>
           <p className="nav_link nav_link_iii"><Link to="/publish">Publish</Link></p>
           <p className="nav_link nav_link_iv"><Link to="/help">Help</Link></p>

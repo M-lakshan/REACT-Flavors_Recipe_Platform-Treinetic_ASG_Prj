@@ -1,0 +1,84 @@
+$recipe_page_content_max_width: 1080px;
+
+#recipe_page_content {
+  @include dp_flex(column, center, flex-start, max-content, 100%);
+
+  h1 {
+    @include dp_block(block, max-content, 100%);
+    margin: 5px 0px 10px;
+    font-family: $fm_PatrickHand;
+    text-align: center;
+    color: var(--sec_font);
+  }
+
+  .loading_meta {
+    @include dp_flex(column, center, center, 10vh, 100%);
+    max-width: $recipe_page_content_max_width;
+    font-family: monospace;
+    font-style: oblique;
+  }
+ 
+  .controls {
+    @include dp_flex(row, center, space-between, 10vh, 100%);
+    max-width: $recipe_page_content_max_width;
+    padding: 5px 10px;
+      
+    span {
+      font-weight: 14px;
+      color: var(--prm_font_alt);
+      font-family: $fm_Poppins;
+    } 
+  
+    .search_component {
+      @include dp_flex(row, center, flex-start, 30px, 100%);
+
+      .search_field {
+        @extend %input_field;
+        min-width: 220px;
+        transform: translateY(5px)
+      }
+    }
+    
+    .layout {
+      @include dp_flex(row, center, flex-end, 30px, 100%);
+
+      .btn_layout {
+        @include dp_block();
+        background: none;
+        padding: 5px 8px;
+        border: none;
+        border-radius: 8px;
+        margin-left: 5px;
+        color: var(--ter_font);
+        font-size: 20px;
+        cursor: pointer;
+        transition: 200ms ease-out;
+
+        &:hover {
+          background: var(--sec_font);
+          color: var(--sec_bg);
+          @include box-shadow(0.01em, 0.01em, 1px, 0.01em, var(--box_shadow_dark));
+        }
+      }
+
+      .btn_layout.active {
+        color: var(--sec_font);
+             
+        &:hover {
+          background: var(--sec_font);
+          color: var(--sec_bg);
+          @include box-shadow(0.01em, 0.01em, 1px, 0.01em, var(--box_shadow_dark));
+        }
+      }
+    }
+  }
+
+  .recipe_list {
+    @include dp_flex(column, center, center, max-content, 100%);
+    max-width: $recipe_page_content_max_width;
+
+    .recipe {
+      @extend %recipe_lite;
+    }
+  }
+}

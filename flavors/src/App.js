@@ -8,7 +8,7 @@ import Login from './components/pages/Login';
 import Registration from './components/pages/Registration';
 import Profile from './components/pages/Profile';
 import Favorites from './components/pages/Favorites';
-import Recipes from './components/pages/Recipes';
+import Recipies from './components/pages/Recipies';
 import Cooking from './components/pages/Cooking';
 import Publish from './components/pages/Publish';
 import Results from './components/pages/Results';
@@ -68,7 +68,7 @@ class App extends React.Component {
             />
             <Route 
               path="/recipies" 
-              element={<Recipes 
+              element={<Recipies 
                 cur_theme={theme_val} 
                 cur_favs={favorites_val}
               />}
