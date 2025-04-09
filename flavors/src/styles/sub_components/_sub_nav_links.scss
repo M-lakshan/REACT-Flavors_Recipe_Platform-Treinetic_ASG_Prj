@@ -1,0 +1,35 @@
+%sub_nav_links {
+  @include dp_flex(row, center, space-between, 24px, max-content);
+  min-width: max-content;
+  grid-column: 4/6;
+  grid-row: 2/3;
+  align-self: flex-end;
+  justify-self: right;
+  padding: 0px 5px 25px 0px;
+
+  .sub_nav_link {
+    cursor: pointer;
+    @include dp_block(inline-block, 24px, 30px);
+    margin: 0px 8px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--prm_font_alt);
+    position: relative;
+    transition: 200ms ease-out;
+    z-index: 5;
+  }
+  
+  .sub_nav_link:hover {
+    color: var(--sec_font);
+    transition: 200ms ease-in;
+  }
+
+  .sub_nav_link.login:hover {
+    color: var(--prm_okay);
+  }
+
+  .sub_nav_link.logout:hover {
+    color: var(--prm_cancel);
+  }
+}

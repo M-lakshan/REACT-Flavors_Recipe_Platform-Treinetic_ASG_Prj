@@ -2,7 +2,7 @@ const InputField = ({ post_tag, cls_container, cls_label, cls_input, label_visib
   input_visible, input_type, input_id, input_placeholder, input_value, evt_onlcick, evt_onchange }) => {
 
   return (
-    <div className={cls_container.join(' ')}>
+    <div className={`${cls_container.join(' ')} ${input_id}`}>
       {(label_visible) && <label htmlFor={input_id} className={cls_label.join(' ')}>{label_value}</label>}
       {(input_type=="textarea") ? <textarea 
         id={input_id} 

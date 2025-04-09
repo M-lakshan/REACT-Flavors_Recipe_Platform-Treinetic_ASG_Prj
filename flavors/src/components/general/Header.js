@@ -28,27 +28,27 @@ const Header = ({ header_logo, cur_theme, cur_user }) => {
           <p className="nav_link nav_link_iv"><Link to="/help">Help</Link></p>
         </div>
         <div className="sub_nav_links">
-          <button id="btn_wishlist" onClick={() => navigate('/whishlist')} className="sub_nav_link_i">
+          <button id="btn_favorites" onClick={() => navigate('/whishlist')} className="sub_nav_link sub_nav_link_i">
             <abbr title={`${(cur_user) ? "view my favorites" : "sign-in to view favories"}`}>
               <i className="fa-solid fa-heart"></i>
             </abbr>
           </button>
-          <button id="btn_login" onClick={() => navigate('/login')} className="sub_nav_link_ii">
+          <button id="btn_login" onClick={() => navigate('/login')} className={`sub_nav_link sub_nav_link_ii log${(cur_user) ? "out" : "in"}`}>
             <abbr title={`sign-${(cur_user) ? "out" : "in"}`}>
               <i className={`fa-solid fa-person-walking-${(cur_user) ? "arrow-loop-left" : "dashed-line-arrow-right"}`}></i>
             </abbr>
           </button>
         </div>
+        <button 
+          id="btn_theme_toggler" 
+          className={`${cur_theme}_mode`}
+          onClick={() => updateTheme()} 
+        >
+          <i className="fa-solid fa-circle"></i>
+          <i className={`fa-solid fa-sun ${(cur_theme != "dark") ? "active" : ''}`}></i>
+          <i className={`fa-solid fa-moon ${(cur_theme == "dark") ? "active" : ''}`}></i>
+        </button>
       </nav>
-      <button 
-        id="btn_theme_toggler" 
-        className={`${cur_theme}_mode`}
-        onClick={() => updateTheme()} 
-      >
-        <i className="fa-solid fa-circle"></i>
-        <i className={`fa-solid fa-sun ${(cur_theme != "dark") ? "active" : ''}`}></i>
-        <i className={`fa-solid fa-moon ${(cur_theme == "dark") ? "active" : ''}`}></i>
-      </button>
     </header>
   );
 };

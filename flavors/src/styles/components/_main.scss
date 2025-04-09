@@ -1,0 +1,85 @@
+main {
+  @include dp_block(block, auto, 100%);
+  min-height: max-content;
+  padding: 20px;
+
+  @import "../pages/cooking";
+  @import "../pages/favorites";
+  @import "../pages/home";
+  @import "../pages/login";
+  @import "../pages/profile";
+  @import "../pages/publish";
+  @import "../pages/recipes";
+  @import "../pages/registration";
+  @import "../pages/results";
+
+  #popup_component {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include dp_flex(column, center, center, max-content, 300px);
+    @include box-shadow(0.1em, 0.1em, 10px, 0.01em, var(--box_shadow_dark));
+    background: var(--prm_bg);
+    border-radius: 5px;
+    overflow: hidden;
+
+    .comp_header, .comp_footer, .comp_msg {
+      @include dp_flex(row,center,space-between,max-content,300px);
+      padding: 5px 10px;
+
+      span {
+        font-family: $fm_Kalam;
+        color: var(--sec_bg);
+      }
+
+      button {
+        @extend %sub_act_btn;
+        @include dp_block();        
+        position: static;
+        padding: 3px;
+        padding-right: 0%;
+        transform: scale(1.5);
+        color: var(--sec_bg);
+
+        i {
+          border: 1px solid var(--sec_bg);
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .comp_msg {
+      justify-content: center;
+      min-height: 100px;
+      color: var(--ter_font);
+    }
+  }
+  
+  #popup_component.success {
+
+    .comp_header {
+      background: var(--prm_okay);
+    }
+  }
+  
+  #popup_component.error {
+
+    .comp_header {
+      background: var(--prm_cancel);
+    }
+  }
+
+  #popup_component.dark_mode {
+    background: var(--prm_comp_bg);
+
+    .comp_header > span {
+      color: var(--body_bg);
+    }
+
+    .comp_msg {
+      color: var(--prm_font);
+    }
+  }
+}

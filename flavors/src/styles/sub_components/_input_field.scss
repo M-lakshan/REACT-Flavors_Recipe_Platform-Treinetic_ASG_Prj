@@ -1,0 +1,11 @@
+%input_field {
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: var(--prm_comp_bg_light);
+  color: var(--ter_font);
+  margin: 10px 15px 20px;
+  width: 80%;
+  text-align: center;
+  border: none;
+  @include box-shadow(0.01em, 0.01em, 1px, 0.01em, var(--box_shadow_dark));
+}

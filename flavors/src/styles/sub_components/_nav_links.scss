@@ -1,0 +1,26 @@
+%nav_links {
+  @include dp_flex(column, flex-start, space-around, max-content, 100%);
+  grid-column: 1/3;
+  grid-row: 2/3;
+
+  .nav_link {
+    padding: 10px 5px 0px 20px;
+
+    &:first-child { padding-top: 0px; }
+    &:last-child { padding-bottom: 15px; }
+
+    a {
+      text-decoration: none;
+      font-family: $fm_Itim;
+      font-weight: 300;
+      color: var(--prm_font);
+      transition: 200ms ease-out;
+
+      &:hover {
+        color: var(--sec_font);
+        padding-left: 15px;
+        transition: 200ms ease-in;
+      }
+    }
+  }
+}

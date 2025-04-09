@@ -1,11 +1,42 @@
-/* Light theme */
+/* light theme */
 :root {
-  --primary-background: white;
-  --primary-color: black;
+  --body_bg: #FFF;
+  --prm_bg: #fff3eb;
+  --sec_bg: #fff;
+  --prm_comp_bg_light: #ffe1cf;
+  --prm_comp_bg: #f99251;
+  --prm_font: #f99251;
+  --prm_font_alt: #ffc29d;
+  --sec_font: #ff5e23;
+  --ter_font: #b53000;
+  --prm_font_hover: #fbf169;
+  --sec_font_hover: #e4bd12;
+  --prm_shadow: #210726;
+  --sec_shadow: #7a7f80;
+  --prm_cancel: #f8566f;
+  --prm_okay: #4ec527;
+  --box_shadow_dark: rgba(0,0,0,0.25);
+  --box_shadow_light: rgba(255,255,255,0.95);
 }
 
-/* Dark theme */
+/* dark theme */
 [data-theme='dark'] {
-  --primary-background: #2c2c2c;
-  --primary-color: white;
+  --body_bg: #3a1500;
+  --prm_bg: #491d00;
+  --sec_bg: #8c4a1d;
+  --prm_comp_bg_light: #996c4e;
+  --prm_comp_bg: #603e27;
+  --prm_font: #f88741;
+  --prm_font_alt: #e8752e;
+  --sec_font: #fbf169;
+  --ter_font: #bbb55f;
+  --prm_font_hover: #ffe62a;
+  --sec_font_hover: #e6be0e;
+  --prm_shadow: #210726;
+  --sec_shadow: #7a7f80;
+  --prm_cancel: #f8566f;
+  --prm_okay: #4ec527;
+  --box_shadow_dark: rgba(0,0,0,0.75);
+  --box_shadow_light: rgba(255,255,255,0.25);
+  --box_shadow_mid: rgba(56, 22, 0, 0.90);
 }

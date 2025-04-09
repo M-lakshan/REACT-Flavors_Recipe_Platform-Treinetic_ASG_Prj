@@ -1,0 +1,14 @@
+%sub_act_btn {
+  cursor: pointer;
+  @include dp_flex(row, center, center, max-content, 90%);
+  padding: 15px 0px 0px;
+  border: none;
+  background: none;
+  color: var(--ter_font);
+  transition: 200ms ease-out;
+
+  &:hover {
+    transition: 200ms ease-in;
+    color: var(--sec_font);
+  }
+}

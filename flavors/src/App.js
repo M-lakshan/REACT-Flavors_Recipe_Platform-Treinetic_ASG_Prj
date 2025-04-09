@@ -19,7 +19,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+    
+  componentDidUpdate(prevProps) {
+    
+    if (this.props.theme_val !== prevProps.theme_val) {
+      document.documentElement.setAttribute('data-theme', this.props.theme_val);
+    }
+  }
+
   render() {
     const { theme_val, user_val, favorites_val, ongoing_recipe } = this.props;
 

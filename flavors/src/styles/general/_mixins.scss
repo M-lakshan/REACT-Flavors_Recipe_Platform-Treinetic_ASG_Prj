@@ -1,0 +1,288 @@
+@mixin dp_block($mode: inline-block, $h: max-content, $w: max-content) {
+  display: $mode;
+  height: $h;
+  width: $w;
+}
+
+@mixin dp_flex($dir, $cont_align, $cont_justify, $h, $w) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: $cont_align;
+  justify-content: $cont_justify;
+  height: $h;
+  width: $w;
+}
+
+@mixin pad_n_marg($pad, $marg) {
+  padding: $pad;
+  margin: $marg;
+}
+
+@mixin box-shadow($x, $y, $blur, $spread, $colour) {
+  -webkit-box-shadow: $x $y $blur $spread $colour;
+  -moz-box-shadow: $x $y $blur $spread $colour;
+  -ms-box-shadow: $x $y $blur $spread $colour;
+  box-shadow: $x $y $blur $spread $colour;
+}
+
+@mixin window_tile_expander($dir, $cont_align, $cont_justify, $h, $w, $p_after_bgc, $p_after_bgc_hv) {
+  @include dp_flex($dir, $cont_align, $cont_justify, $h, $w);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  transform: rotate(180deg);
+  transition: 280ms ease-in;
+  padding: 20px 15px;
+  border-bottom: none;
+
+  span {
+    @include dp_block(block, auto, fit-content);
+    font-size: 1.2em;
+    text-indent: 20px;
+    transition: 280ms ease-out;
+  }
+
+  .whitespace {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    border-top: 75px solid $p_after_bgc;
+    border-left: 100px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 40px solid transparent;
+    transition: 280ms ease-in;
+  }
+
+  &:hover {
+    border-top: none;
+
+    &::after {
+      content: '';
+      border-top: 75px solid $p_after_bgc_hv;
+      transition: 280ms ease-in;
+    }
+  }
+}
+
+@mixin prj_sub_container($sub_cnt_h, $prj_ml, $prj_max_h, $prj_max_w, $prj_bg_c, $prj_bg_hv_c,
+  $prv_fc, $prv_hv_fc, $prv_w, $prv_h4_fs, $prv_p_fs, $img_max_h, $img_max_w,
+  $ovly_h, $ovly_w, $ovly_bg, $btn_fc , $btn_hv_fc , $btn_alt_hv_fc, $vw_max_h,
+  $link_fc, $link_pseudo_border_c, $link_pseudo_border_hv_c, $anchor_fc, $anchor_hv_fc, $desc_fs, $desc_fc) {
+  position: absolute;
+  @include dp_flex(row, center, space-around, $sub_cnt_h, auto);
+  top: 0%;
+  left: 0%;
+
+  .prj {
+    position: relative;
+    @include dp_block(inline-block, fit-content, auto);
+    margin-left: $prj_ml;
+    max-height: $prj_max_h;
+    max-width: $prj_max_w;
+    background: $prj_bg_c;
+    border-radius: 3px;
+
+    .preview {
+      color: $prv_fc;
+
+      h4 {
+        width: $prv_w;
+        padding: 5px 10px;
+        font-size: $prv_h4_fs;
+        font-weight: 400;
+      }
+
+      p {
+        padding: 0px 0px 10px 10px;
+        font-size: $prv_p_fs;
+        font-family: $fm_Sunflower;
+      }
+
+      .img_holder {
+        overflow: hidden;
+        position: relative;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        img {
+          height: auto;
+          width: 100%;
+          max-height: $img_max_h;
+          max-width: $img_max_w;
+        }
+
+        .overlay {
+          position: absolute;
+          @include dp_block(inline-block, $ovly_h, $ovly_w);
+          top: 0%;
+          left: 0%;
+          background: $ovly_bg;
+          transition: 280ms ease-out;
+        }
+
+        &:hover {
+
+          .overlay {
+            background: none;
+            transition: 280ms ease-in;
+          }
+        }
+      }
+
+      button {
+        position: absolute;
+        top: 0%;
+        right: 10px;
+        padding: 0px 5px;
+        border: none;
+        background: none;
+        font-size: 1.8em;
+        color: $btn_fc;
+        transform: translateY(75%);
+        transition: 280ms ease-out;
+
+        &:hover {
+          cursor: pointer;
+          color: $btn_hv_fc;
+        }
+      }
+    }
+
+    .preview.deactive {
+
+      h4 {
+        font-weight: 600;
+        font-style: oblique;
+      }
+
+      p {
+        font-weight: 300;
+        font-style: oblique;
+      }
+
+      .img_holder {
+        display: none;
+      }
+
+      &:hover {
+
+        button {
+          color: $btn_alt_hv_fc;
+        }
+      }
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      @include dp_block(inline-block, fit-content, auto);
+      max-height: $vw_max_h;
+      transition: 280ms ease-out;
+      overflow: hidden;
+
+      .link {
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        height: 100px;
+        width: 100%;
+        color: $link_fc;
+        border-bottom-right-radius: 3px;
+        overflow: hidden;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0px;
+          bottom: 0px;
+          border-bottom: 30px solid $link_pseudo_border_c;
+          border-right: 30px solid $link_pseudo_border_c;
+          border-top: 30px solid transparent;
+          border-left: 30px solid transparent;
+        }
+
+        a {
+          position: absolute;
+          bottom: 0%;
+          right: 0%;
+          transform: translate(-50%, -45%);
+          color: $anchor_fc;
+          font-size: 1.8em;
+          text-decoration: none;
+          z-index: 4;
+        }
+      }
+
+      .desc {
+        @include dp_block(inline-block, fit-content, 100%);
+        padding: 10px 25px 30px 25px;
+        font-size: $desc_fs;
+        text-indent: 30px;
+        color: $desc_fc;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: $prj_bg_hv_c;
+      transition: 280ms ease-in;
+
+      .preview {
+
+        h4,
+        p {
+          color: $prv_hv_fc;
+        }
+      }
+
+      .preview.deactive {
+
+        h4,
+        p {
+          color: $prv_hv_fc;
+        }
+
+        button {
+          color: $prv_hv_fc;
+        }
+      }
+
+      .view.active {
+
+        .desc {
+          color: $prv_hv_fc;
+          transition: 240ms ease-in;
+        }
+
+        .link {
+
+          &::after {
+            content: "";
+            position: absolute;
+            border-bottom: 30px solid $link_pseudo_border_hv_c;
+            border-right: 30px solid $link_pseudo_border_hv_c;
+          }
+
+          a {
+            color: $anchor_hv_fc;
+          }
+        }
+      }
+    }
+  }
+}

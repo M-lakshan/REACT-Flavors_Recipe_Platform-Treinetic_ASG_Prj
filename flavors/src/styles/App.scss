@@ -1,0 +1,26 @@
+@import "./general/colors";
+@import "./general/fonts";
+@import "./general/keyframes";
+@import "./general/mixins";
+@import "./general/mq_resolutions";
+@import "./sub_components/sub_components";
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  position: relative;
+  @include dp_block(block, 100%, 100%);
+  min-height: 100%;
+  overflow-x: hidden;
+  background: var(--body_bg);
+}
+
+@import "./components/header";
+@import "./components/main";
+@import "./components/footer";
